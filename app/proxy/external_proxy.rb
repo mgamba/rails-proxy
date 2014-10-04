@@ -7,7 +7,7 @@ class ExternalProxy < Rack::Proxy
   }
 
   def rewrite_env(env)
-    #request = Rack::Request.new(env)
+    puts env['middling']
     path_params = env["action_dispatch.request.path_parameters"]
 
     env["HTTP_HOST"] = RemoteHostForName[path_params[:remote_name]]
