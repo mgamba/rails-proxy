@@ -11,7 +11,7 @@ class ExternalProxy < Rack::Proxy
     path_params = env["action_dispatch.request.path_parameters"]
 
     env["HTTP_HOST"] = RemoteHostForName[path_params[:remote_name]]
-    env["SCRIPT_NAME"] = '/'+path_params[:remote_path]
+    env["SCRIPT_NAME"] = '/'+path_params[:remote_path]+'/'+Thing.find(1).value
     env
   end
 end
